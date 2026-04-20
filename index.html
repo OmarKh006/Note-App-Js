@@ -14,14 +14,14 @@
   </head>
   <body>
     <div class="container">
-      <section id="home-page" hidden>
+      <section class="section" id="home-page" hidden>
         <header></header>
         <main></main>
       </section>
 
-      <section id="add-note-page">
+      <section class="section" id="add-note-page">
         <header class="header">
-          <h1 class="header__main-head">Almdrasa-Notes</h1>
+          <span class="header__logo">Almdrasa-Notes</span>
           <form class="header__search-form" id="search-form" role="search">
             <div class="header__search-wrapper">
               <svg
@@ -68,7 +68,42 @@
             <button class="header__btn" aria-current="page">Add Note</button>
           </nav>
         </header>
-        <main></main>
+        <main class="main">
+          <h1 class="main__header h1-header">Add Note</h1>
+          <form class="main__addNoteForm" id="add-note-form">
+            <div class="main__inputWrapper">
+              <label class="main__text" for="title">Title*</label>
+              <input
+                class="main__inputField"
+                type="text"
+                name="title"
+                id="title"
+              />
+            </div>
+            <div class="main__inputWrapper">
+              <label class="main__text" for="author">Author*</label>
+              <input
+                class="main__inputField"
+                type="text"
+                name="author"
+                id="author"
+              />
+            </div>
+            <div class="main__inputWrapper">
+              <label class="main__text" for="note">Your Note*</label>
+              <textarea
+                class="main__inputField main__textarea"
+                id="note"
+              ></textarea>
+            </div>
+            <div class="main__buttonWrapper">
+              <button class="main__btn add" type="submit">Add Note</button>
+              <button class="main__btn addPinned" type="button">
+                Add pinned note
+              </button>
+            </div>
+          </form>
+        </main>
       </section>
     </div>
     <script type="module" src="index.js"></script>

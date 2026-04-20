@@ -140,6 +140,17 @@ meter {
   display: none;
 }
 
+.section {
+  display: flex;
+}
+
+.h1-header {
+  color: var(--text-color-black);
+  font-size: var(--font-size-26);
+  line-height: 3.1rem;
+  font-weight: 400;
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -148,7 +159,7 @@ meter {
   background-color: var(--color-light-grey);
   padding: 0 2.4rem;
 
-  &__main-head {
+  &__logo {
     margin-top: 4.1rem;
     font-family: var(--font-aclonica);
     font-weight: 400;
@@ -191,7 +202,7 @@ meter {
 
   &__buttons {
     margin-top: 3.6rem;
-    padding-left: 0.65rem;
+    padding-inline-start: 0.65rem;
     display: flex;
     flex-direction: column;
   }
@@ -216,6 +227,70 @@ meter {
       inset-block: 0.45rem 0.25rem;
       width: 0.2rem;
       background-color: var(--color-orange);
+    }
+  }
+}
+
+.main {
+  width: 50rem;
+  margin-top: 11.4rem;
+  margin-inline-start: 20.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.6rem;
+
+  &__addNoteForm {
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+  }
+
+  &__text {
+    font-size: var(--font-size-13);
+    color: var(--text-color-grey);
+    font-weight: 400;
+    line-height: 2rem;
+  }
+
+  &__inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  &__inputField {
+    width: 100%;
+    height: 4.5rem;
+    align-items: center;
+    background-color: var(--color-light-grey);
+    padding-inline-start: 0.8rem;
+    border-radius: 7px;
+    font-size: var(--font-size-13);
+  }
+
+  &__textarea {
+    height: 15rem;
+    padding-top: 0.8rem;
+  }
+
+  &__buttonWrapper {
+    display: flex;
+    gap: 2.7rem;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: var(--color-orange);
+    color: var(--color-white);
+
+    &.add {
+      padding: 1rem 2rem;
+    }
+    &.addPinned {
+      padding: 1rem 1.6rem;
     }
   }
 }
