@@ -21,11 +21,13 @@
 
       <section class="section" id="add-note-page">
         <header class="header">
-          <span class="header__logo">Almdrasa-Notes</span>
+          <p class="header__logo">Almdrasa-Notes</p>
           <form class="header__search-form" id="search-form" role="search">
             <div class="header__search-wrapper">
               <svg
                 class="header__search-icon"
+                aria-hidden="true"
+                focusable="false"
                 width="18"
                 height="18"
                 viewBox="0 0 18 18"
@@ -71,29 +73,43 @@
         <main class="main">
           <h1 class="main__header h1-header">Add Note</h1>
           <form class="main__addNoteForm" id="add-note-form">
+            <p class="visually-hidden">Fields marked with * are required</p>
             <div class="main__inputWrapper">
-              <label class="main__text" for="title">Title*</label>
+              <label class="main__text" for="title"
+                >Title<span aria-hidden="true">*</span></label
+              >
               <input
                 class="main__inputField"
                 type="text"
                 name="title"
                 id="title"
+                required
+                aria-required="true"
               />
             </div>
             <div class="main__inputWrapper">
-              <label class="main__text" for="author">Author*</label>
+              <label class="main__text" for="author"
+                >Author<span aria-hidden="true">*</span></label
+              >
               <input
                 class="main__inputField"
                 type="text"
                 name="author"
                 id="author"
+                required
+                aria-required="true"
               />
             </div>
             <div class="main__inputWrapper">
-              <label class="main__text" for="note">Your Note*</label>
+              <label class="main__text" for="note"
+                >Your Note<span aria-hidden="true">*</span></label
+              >
               <textarea
                 class="main__inputField main__textarea"
                 id="note"
+                name="note"
+                required
+                aria-required="true"
               ></textarea>
             </div>
             <div class="main__buttonWrapper">
