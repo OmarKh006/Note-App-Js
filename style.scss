@@ -1,3 +1,20 @@
+:root {
+  --font-aclonica: "Aclonica", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
+  --font-size-13: 1.3rem;
+  --font-size-15: 1.5rem;
+  --font-size-16: 1.6rem;
+  --font-size-26: 2.6rem;
+
+  --color-orange: #ec7160;
+  --color-white: #ffffff;
+  --color-light-grey: #f6f6f6;
+
+  --text-color-black: #303030;
+  --text-color-grey: #898989;
+}
+
 *:where(
   :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
 ) {
@@ -21,17 +38,15 @@ html {
   overflow-x: hidden;
 
   @media (max-width: 900px) {
-    font-size: 8px;
+    font-size: 0.8rem;
   }
 }
 
 body {
   margin: 0;
-  //   font-family: var(--font-family);
-  //   font-size: var(--font-size-18);
+  font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  //   color: var(--text-color-light);
 }
 
 /* Reapply the pointer cursor for anchor tags */
@@ -123,4 +138,84 @@ meter {
 /* Remove details summary webkit styles */
 ::-webkit-details-marker {
   display: none;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 25.8rem;
+  height: 100vh;
+  background-color: var(--color-light-grey);
+  padding: 0 2.4rem;
+
+  &__main-head {
+    margin-top: 4.1rem;
+    font-family: var(--font-aclonica);
+    font-weight: 400;
+    font-size: var(--font-size-15);
+    line-height: 100%;
+    color: var(--color-orange);
+  }
+
+  &__search-form {
+    margin-top: 5.7rem;
+  }
+
+  &__search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 7px;
+    overflow: hidden;
+  }
+
+  &__search-icon {
+    position: absolute;
+    inset-inline-start: 0.8rem;
+    pointer-events: none;
+  }
+
+  &__searchInput {
+    padding: 0.8rem 0;
+    padding-right: 0.8rem;
+    width: 100%;
+    padding-inline-start: 3.2rem;
+    background-color: var(--color-white);
+    font-size: var(--font-size-13);
+    color: var(--text-color-grey);
+
+    &::placeholder {
+      font-size: var(--font-size-13);
+    }
+  }
+
+  &__buttons {
+    margin-top: 3.6rem;
+    padding-left: 0.65rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__btn {
+    font-size: var(--font-size-16);
+    font-weight: 400;
+    line-height: 2.7rem;
+    color: var(--text-color-grey);
+    cursor: pointer;
+  }
+
+  &__btn[aria-current="page"] {
+    position: relative;
+    color: var(--text-color-black);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      inset-inline-start: -0.65rem;
+      inset-block: 0.45rem 0.25rem;
+      width: 0.2rem;
+      background-color: var(--color-orange);
+    }
+  }
 }
