@@ -14,62 +14,65 @@
   </head>
   <body>
     <div class="container">
+      <header class="header">
+        <p class="header__logo">Almdrasa-Notes</p>
+        <form class="header__search-form" id="search-form" role="search">
+          <div class="header__search-wrapper">
+            <svg
+              class="header__search-icon"
+              aria-hidden="true"
+              focusable="false"
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_260_701)">
+                <path
+                  d="M8.15625 14.0683C11.4182 14.0683 14.0625 11.4229 14.0625 8.15964C14.0625 4.89637 11.4182 2.25098 8.15625 2.25098C4.89432 2.25098 2.25 4.89637 2.25 8.15964C2.25 11.4229 4.89432 14.0683 8.15625 14.0683Z"
+                  stroke="#898989"
+                  stroke-width="1.125"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12.332 12.3379L15.7493 15.7565"
+                  stroke="#898989"
+                  stroke-width="1.125"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_260_701">
+                  <rect width="18" height="18.0073" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+
+            <input
+              class="header__searchInput"
+              type="search"
+              id="search-input"
+              placeholder="Search"
+            />
+          </div>
+        </form>
+        <nav class="header__buttons" aria-label="Page navigation">
+          <button class="header__btn" data-page="home">Notes</button>
+          <button class="header__btn" data-page="note" aria-current="page">
+            Add Note
+          </button>
+        </nav>
+      </header>
+
       <section class="section" id="home-page" hidden>
         <header></header>
         <main></main>
       </section>
 
       <section class="section" id="add-note-page">
-        <header class="header">
-          <p class="header__logo">Almdrasa-Notes</p>
-          <form class="header__search-form" id="search-form" role="search">
-            <div class="header__search-wrapper">
-              <svg
-                class="header__search-icon"
-                aria-hidden="true"
-                focusable="false"
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clip-path="url(#clip0_260_701)">
-                  <path
-                    d="M8.15625 14.0683C11.4182 14.0683 14.0625 11.4229 14.0625 8.15964C14.0625 4.89637 11.4182 2.25098 8.15625 2.25098C4.89432 2.25098 2.25 4.89637 2.25 8.15964C2.25 11.4229 4.89432 14.0683 8.15625 14.0683Z"
-                    stroke="#898989"
-                    stroke-width="1.125"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M12.332 12.3379L15.7493 15.7565"
-                    stroke="#898989"
-                    stroke-width="1.125"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_260_701">
-                    <rect width="18" height="18.0073" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-
-              <input
-                class="header__searchInput"
-                type="search"
-                id="search-input"
-                placeholder="Search"
-              />
-            </div>
-          </form>
-          <nav class="header__buttons" aria-label="Page navigation">
-            <button class="header__btn">Notes</button>
-            <button class="header__btn" aria-current="page">Add Note</button>
-          </nav>
-        </header>
         <main class="main">
           <h1 class="main__header h1-header">Add Note</h1>
           <form class="main__addNoteForm" id="add-note-form">
