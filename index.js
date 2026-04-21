@@ -2,6 +2,9 @@ const navigationButtons = document.querySelectorAll(".header__btn");
 const homePage = document.querySelector("#home-page");
 const addNotePage = document.querySelector("#add-note-page");
 const notesElements = document.querySelectorAll(".sideBar__note");
+const goToAddNoteBtn = document.querySelector(".selectedNote__icon-button");
+const homeBtn = document.querySelector("#homeBtn");
+const noteBtn = document.querySelector("#noteBtn");
 
 const setViewedPage = (page) => {
   if (page === "home") {
@@ -32,4 +35,10 @@ notesElements.forEach((note) => {
     });
     clickedNote.currentTarget.classList.add("selected");
   });
+});
+
+goToAddNoteBtn.addEventListener("click", () => {
+  setViewedPage("note");
+  noteBtn.setAttribute("aria-current", "page");
+  homeBtn.removeAttribute("aria-current");
 });

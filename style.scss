@@ -418,6 +418,7 @@ meter {
 }
 
 .selectedNote {
+  position: relative;
   margin-top: 11.4rem;
   margin-inline-start: 9.9rem;
   width: 60.8rem;
@@ -443,5 +444,12 @@ meter {
     font-weight: 400;
     line-height: 2.7rem;
     color: var(--text-color-black);
+  }
+
+  &__icon-button {
+    position: absolute;
+    top: 30%;
+    right: -7rem;
+    cursor: pointer;
   }
 }
