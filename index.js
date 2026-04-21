@@ -3,6 +3,16 @@ const homePage = document.querySelector("#home-page");
 const addNotePage = document.querySelector("#add-note-page");
 const notesElements = document.querySelectorAll(".sideBar__note");
 
+const setViewedPage = (page) => {
+  if (page === "home") {
+    homePage.style.display = "flex";
+    addNotePage.style.display = "none";
+  } else if (page === "note") {
+    homePage.style.display = "none";
+    addNotePage.style.display = "block";
+  }
+};
+
 navigationButtons.forEach((button) => {
   button.addEventListener("click", (clicked) => {
     navigationButtons.forEach((b) => {
@@ -14,17 +24,6 @@ navigationButtons.forEach((button) => {
       setViewedPage("note");
   });
 });
-
-const setViewedPage = (page) => {
-  if (page === "home") {
-    homePage.hidden = false;
-    addNotePage.hidden = true;
-  } else if (page === "note") {
-    homePage.hidden = true;
-    addNotePage.hidden = false;
-  }
-  return;
-};
 
 notesElements.forEach((note) => {
   note.addEventListener("click", (clickedNote) => {
