@@ -143,9 +143,14 @@ meter {
   display: none;
 }
 
-.container,
+.container {
+  display: flex;
+}
+
 .section {
   display: flex;
+  align-items: flex-start;
+  position: relative;
 }
 
 #add-note-page {
@@ -322,7 +327,9 @@ meter {
 }
 
 .sideBar {
+  position: relative;
   width: 32rem;
+  min-width: 32rem;
   border-right: solid 0.1rem var(--border-color-grey);
   height: 100vh;
   padding: 0 1.2rem;
@@ -330,7 +337,40 @@ meter {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+  transition:
+    width 0.3s ease,
+    min-width 0.3s ease,
+    padding 0.3s ease;
   overflow: hidden;
+
+  &.collapsed {
+    width: 0;
+    min-width: 0;
+    padding: 0;
+    border-right: none;
+  }
+
+  &.collapsed ~ .sideBar__collapseButton {
+    left: 0;
+
+    img {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__collapseButton {
+    position: absolute;
+    left: 32rem;
+    top: 18%;
+    transform: translateX(-50%);
+    transition: left 0.3s ease;
+    z-index: 10;
+    cursor: pointer;
+
+    img {
+      transition: transform 0.3s ease;
+    }
+  }
 
   &__pinnedContainer {
     margin-top: 4.8rem;
@@ -448,7 +488,7 @@ meter {
 
   &__icon-button {
     position: absolute;
-    top: 30%;
+    bottom: -7rem;
     right: -7rem;
     cursor: pointer;
   }

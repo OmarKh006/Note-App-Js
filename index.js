@@ -5,6 +5,9 @@ const notesElements = document.querySelectorAll(".sideBar__note");
 const goToAddNoteBtn = document.querySelector(".selectedNote__icon-button");
 const homeBtn = document.querySelector("#homeBtn");
 const noteBtn = document.querySelector("#noteBtn");
+const collapseButton = document.querySelector(".sideBar__collapseButton");
+const aside = document.querySelector(".sideBar");
+const selectedNote = document.querySelector(".selectedNote");
 
 const setViewedPage = (page) => {
   if (page === "home") {
@@ -16,9 +19,9 @@ const setViewedPage = (page) => {
   }
 };
 
-navigationButtons.forEach((button) => {
-  button.addEventListener("click", (clicked) => {
-    navigationButtons.forEach((b) => {
+navigationButtons?.forEach((button) => {
+  button?.addEventListener("click", (clicked) => {
+    navigationButtons?.forEach((b) => {
       b.removeAttribute("aria-current");
     });
     clicked.currentTarget.setAttribute("aria-current", "page");
@@ -28,17 +31,21 @@ navigationButtons.forEach((button) => {
   });
 });
 
-notesElements.forEach((note) => {
-  note.addEventListener("click", (clickedNote) => {
-    notesElements.forEach((n) => {
+notesElements?.forEach((note) => {
+  note?.addEventListener("click", (clickedNote) => {
+    notesElements?.forEach((n) => {
       n.classList.remove("selected");
     });
     clickedNote.currentTarget.classList.add("selected");
   });
 });
 
-goToAddNoteBtn.addEventListener("click", () => {
+goToAddNoteBtn?.addEventListener("click", () => {
   setViewedPage("note");
   noteBtn.setAttribute("aria-current", "page");
   homeBtn.removeAttribute("aria-current");
+});
+
+collapseButton?.addEventListener("click", () => {
+  aside?.classList.toggle("collapsed");
 });
