@@ -1,6 +1,7 @@
 const navigationButtons = document.querySelectorAll(".header__btn");
 const homePage = document.querySelector("#home-page");
 const addNotePage = document.querySelector("#add-note-page");
+const notesElements = document.querySelectorAll(".sideBar__note");
 
 navigationButtons.forEach((button) => {
   button.addEventListener("click", (clicked) => {
@@ -24,3 +25,12 @@ const setViewedPage = (page) => {
   }
   return;
 };
+
+notesElements.forEach((note) => {
+  note.addEventListener("click", (clickedNote) => {
+    notesElements.forEach((n) => {
+      n.classList.remove("selected");
+    });
+    clickedNote.currentTarget.classList.add("selected");
+  });
+});
