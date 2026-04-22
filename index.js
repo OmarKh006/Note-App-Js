@@ -11,6 +11,8 @@ const aside = document.querySelector(".sideBar");
 const selectedNote = document.querySelector(".selectedNote");
 const nonLaptopLogo = document.querySelector(".nonLaptopLogo");
 const burgerMenu = document.querySelector("#menu");
+const searchIconToggle = document.querySelector(".search-bar-icon")
+const headerSearchForm = document.querySelector(".headerForm")
 
 const setViewedPage = (page) => {
   if (page === "home") {
@@ -57,4 +59,9 @@ burgerMenu?.addEventListener("change", () => {
   mainHeader.classList.toggle("burgerChecked");
   addNotePage.classList.toggle("burgerChecked");
   nonLaptopLogo.classList.toggle("burgerChecked");
+  headerSearchForm.classList.toggle("shrinked")
 });
+
+searchIconToggle?.addEventListener("click", () => {
+  headerSearchForm.classList.toggle("collapse")
+})
