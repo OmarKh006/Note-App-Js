@@ -14,6 +14,22 @@
   </head>
   <body>
     <div class="container">
+      <div class="tablet-mobile-header">
+        <!-- <img src="/assets/Menu.svg" alt="burger menu icon" class="menu-icon" /> -->
+        <input type="checkbox" id="menu" hidden />
+        <label class="burger-menu" for="menu">
+          <div class="burger-menu__bar"></div>
+          <div class="burger-menu__bar"></div>
+          <div class="burger-menu__bar"></div>
+        </label>
+
+        <p class="header__logo nonLaptopLogo">Almdrasa-Notes</p>
+        <img
+          src="/assets/searchBarDark.svg"
+          alt="search icon"
+          class="search-bar-icon"
+        />
+      </div>
       <header class="header">
         <p class="header__logo">Almdrasa-Notes</p>
         <form class="header__search-form" id="search-form" role="search">
@@ -275,7 +291,7 @@
         </main>
       </section>
 
-      <section id="add-note-page">
+      <section id="add-note-page" class="addNote">
         <main class="main">
           <h1 class="main__header h1-header">Add Note</h1>
           <form class="main__addNoteForm" id="add-note-form">

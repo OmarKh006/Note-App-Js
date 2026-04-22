@@ -1,6 +1,7 @@
 const navigationButtons = document.querySelectorAll(".header__btn");
 const homePage = document.querySelector("#home-page");
 const addNotePage = document.querySelector("#add-note-page");
+const mainHeader = document.querySelector(".header");
 const notesElements = document.querySelectorAll(".sideBar__note");
 const goToAddNoteBtn = document.querySelector(".selectedNote__icon-button");
 const homeBtn = document.querySelector("#homeBtn");
@@ -8,6 +9,8 @@ const noteBtn = document.querySelector("#noteBtn");
 const collapseButton = document.querySelector(".sideBar__collapseButton");
 const aside = document.querySelector(".sideBar");
 const selectedNote = document.querySelector(".selectedNote");
+const nonLaptopLogo = document.querySelector(".nonLaptopLogo");
+const burgerMenu = document.querySelector("#menu");
 
 const setViewedPage = (page) => {
   if (page === "home") {
@@ -48,4 +51,10 @@ goToAddNoteBtn?.addEventListener("click", () => {
 
 collapseButton?.addEventListener("click", () => {
   aside?.classList.toggle("collapsed");
+});
+
+burgerMenu?.addEventListener("change", () => {
+  mainHeader.classList.toggle("burgerChecked");
+  addNotePage.classList.toggle("burgerChecked");
+  nonLaptopLogo.classList.toggle("burgerChecked");
 });

@@ -145,6 +145,74 @@ meter {
 
 .container {
   display: flex;
+  @media (max-width: 900px) {
+    padding: 0 1.6rem;
+    padding-top: 1.9rem;
+    flex-direction: column;
+    gap: 5.8rem;
+    overflow-x: hidden;
+  }
+}
+
+.burger-menu {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 0.75rem;
+  z-index: 1;
+  align-self: center;
+}
+
+.burger-menu__bar {
+  height: 0.2rem;
+  width: 2rem;
+  background-color: var(--text-color-black);
+  transition: 0.3s;
+
+  &:nth-child(3) {
+    width: 1.3rem;
+  }
+}
+
+#menu:checked + .burger-menu .burger-menu__bar:nth-child(1) {
+  transform: translateY(10px) rotate(45deg) translateX(1px);
+}
+
+#menu:checked + .burger-menu .burger-menu__bar:nth-child(2) {
+  transform: translateY(-2px) rotate(-45deg);
+}
+
+#menu:checked + .burger-menu .burger-menu__bar:nth-child(3) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tablet-mobile-header {
+  display: none;
+  @media (max-width: 900px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.nonLaptopLogo {
+  transition: 0.3s;
+  &.burgerChecked {
+    z-index: 1;
+    transform: translateX(-230px);
+
+    @media (max-width: 600px) {
+      transform: translateX(-10px);
+    }
+  }
+}
+
+.search-bar-icon {
+  @media (max-width: 600px) {
+    z-index: 1;
+  }
 }
 
 .section {
@@ -155,6 +223,14 @@ meter {
 
 #add-note-page {
   display: none;
+  transition: 0.3s;
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+}
+
+.addNote.burgerChecked {
+  transform: translateX(370px);
 }
 
 .h1-header {
@@ -185,6 +261,23 @@ meter {
   background-color: var(--color-light-grey);
   padding: 0 2.4rem;
   border-right: solid 0.1rem var(--border-color-grey);
+  transition: 0.3s;
+
+  @media (max-width: 900px) {
+    position: absolute;
+    visibility: hidden;
+    transform: translateX(-100%);
+  }
+
+  &.burgerChecked {
+    visibility: visible;
+    transform: translateX(0);
+
+    .header__logo,
+    .header__search-form {
+      display: none;
+    }
+  }
 
   &__logo {
     margin-top: 4.1rem;
@@ -193,6 +286,10 @@ meter {
     font-size: var(--font-size-15);
     line-height: 100%;
     color: var(--color-orange);
+
+    @media (max-width: 900px) {
+      margin: 0;
+    }
   }
 
   &__search-form {
@@ -303,6 +400,10 @@ meter {
   &__buttonWrapper {
     display: flex;
     gap: 2.7rem;
+
+    @media (max-width: 900px) {
+      justify-content: space-between;
+    }
   }
 
   &__btn {
@@ -324,6 +425,11 @@ meter {
       padding: 1rem 1.6rem;
     }
   }
+
+  @media (max-width: 900px) {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 .sideBar {
@@ -337,10 +443,7 @@ meter {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  transition:
-    width 0.3s ease,
-    min-width 0.3s ease,
-    padding 0.3s ease;
+  transition: 0.3s ease;
   overflow: hidden;
 
   &.collapsed {
