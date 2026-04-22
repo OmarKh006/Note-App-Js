@@ -11,8 +11,10 @@ const aside = document.querySelector(".sideBar");
 const selectedNote = document.querySelector(".selectedNote");
 const nonLaptopLogo = document.querySelector(".nonLaptopLogo");
 const burgerMenu = document.querySelector("#menu");
-const searchIconToggle = document.querySelector(".search-bar-icon")
-const headerSearchForm = document.querySelector(".headerForm")
+const searchIconToggle = document.querySelector(".search-bar-icon");
+const headerSearchForm = document.querySelector(".headerForm");
+const notes = document.querySelectorAll(".sideBar__note");
+const notesContainer = document.querySelector(".section");
 
 const setViewedPage = (page) => {
   if (page === "home") {
@@ -47,8 +49,8 @@ notesElements?.forEach((note) => {
 
 goToAddNoteBtn?.addEventListener("click", () => {
   setViewedPage("note");
-  noteBtn.setAttribute("aria-current", "page");
-  homeBtn.removeAttribute("aria-current");
+  noteBtn?.setAttribute("aria-current", "page");
+  homeBtn?.removeAttribute("aria-current");
 });
 
 collapseButton?.addEventListener("click", () => {
@@ -56,12 +58,28 @@ collapseButton?.addEventListener("click", () => {
 });
 
 burgerMenu?.addEventListener("change", () => {
-  mainHeader.classList.toggle("burgerChecked");
-  addNotePage.classList.toggle("burgerChecked");
-  nonLaptopLogo.classList.toggle("burgerChecked");
-  headerSearchForm.classList.toggle("shrinked")
+  mainHeader?.classList.toggle("burgerChecked");
+  addNotePage?.classList.toggle("burgerChecked");
+  nonLaptopLogo?.classList.toggle("burgerChecked");
+  headerSearchForm?.classList.toggle("shrinked");
 });
 
 searchIconToggle?.addEventListener("click", () => {
-  headerSearchForm.classList.toggle("collapse")
-})
+  headerSearchForm.classList.toggle("collapse");
+});
+
+notes?.forEach((note) => {
+  note?.addEventListener("click", () => {
+    if (screen.width <= 600) {
+      notesContainer?.classList.add("noteOpened");
+      aside?.classList.add("collapsed");
+    }
+  });
+});
+
+collapseButton?.addEventListener("click", () => {
+  if (notesContainer?.classList.contains("noteOpened")) {
+    notesContainer?.classList.remove("noteOpened");
+    aside?.classList.remove("collapsed");
+  }
+});
