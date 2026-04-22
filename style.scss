@@ -191,6 +191,59 @@ meter {
   display: none;
   @media (max-width: 900px) {
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  } 
+}
+
+.headerForm{
+  max-height: 0;
+  border: 0 solid var(--text-color-black);
+  overflow: hidden;
+  transition: 0.3s;
+
+  &.shrinked{
+    width: calc(100% - 350px);
+    margin-inline-start: 350px; 
+  }
+
+  &.collapse{
+    max-height: 200px;
+    border-width: 0.1rem;
+  }
+
+  &__search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 7px;
+    overflow: hidden;
+  }
+
+  &__search-icon {
+    position: absolute;
+    inset-inline-start: 0.8rem;
+    pointer-events: none;
+  }
+
+  &__searchInput {
+    padding: 0.8rem 0;
+    padding-right: 0.8rem;
+    width: 100%;
+    padding-inline-start: 3.2rem;
+    background-color: var(--color-white);
+    font-size: var(--font-size-13);
+    color: var(--text-color-grey);
+
+    &::placeholder {
+      font-size: var(--font-size-13);
+    }
+  }
+}
+
+.mainContentWrapper{
+  @media (max-width: 900px) {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -219,6 +272,15 @@ meter {
   display: flex;
   align-items: flex-start;
   position: relative;
+  transition: 0.3s;
+
+  @media (max-width: 900px){
+    gap: 1.4rem;
+  }
+}
+
+.burgerChecked + .section{
+  transform: translateX(320px);
 }
 
 #add-note-page {
@@ -477,6 +539,10 @@ meter {
 
   &__pinnedContainer {
     margin-top: 4.8rem;
+
+    @media (max-width: 900px){
+      margin: 0;
+    }
   }
 
   &__titleHeader {
@@ -566,6 +632,11 @@ meter {
   margin-inline-start: 9.9rem;
   width: 60.8rem;
 
+  @media (max-width: 900px){
+    margin: 0;
+    margin-inline-start: 0;
+  }
+
   &__title {
     font-size: var(--font-size-26);
     font-weight: 400;
@@ -594,5 +665,10 @@ meter {
     bottom: -7rem;
     right: -7rem;
     cursor: pointer;
+
+    @media (max-width: 900px){
+      bottom: -7rem;
+      right: -1rem;
+    }
   }
 }
