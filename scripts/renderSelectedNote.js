@@ -1,7 +1,8 @@
 import { selectedNote } from "./elements.js";
 
 export const renderSelectedNote = (note) => {
-  let newSelectedNote = `
+  if (note) {
+    let newSelectedNote = `
   <h1 class="selectedNote__title">
             ${note.title}
           </h1>
@@ -75,5 +76,7 @@ export const renderSelectedNote = (note) => {
           </svg>
   `;
 
-  selectedNote.innerHTML = newSelectedNote;
+    selectedNote.innerHTML = newSelectedNote;
+    return;
+  }
 };

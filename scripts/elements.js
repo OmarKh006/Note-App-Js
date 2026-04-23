@@ -24,3 +24,6 @@ export const titleInputField = document.querySelector("#title");
 export const authorInputField = document.querySelector("#author");
 export const noteInputField = document.querySelector("#note");
 export const noteList = document.querySelector(".sideBar__notes");
+export const pinnedNoteContainer = document.querySelector(
+  ".sideBar__note.pinned",
+);
