@@ -28,3 +28,9 @@ export const pinnedNoteContainer = document.querySelector(
   ".sideBar__note.pinned",
 );
 export const deleteButtons = () => document.querySelectorAll("#deleteNote");
+export const searchInputOne = document.querySelector(
+  ".headerForm__searchInput",
+);
+export const searchInputTwo = document.querySelector(".header__searchInput");
+export const searchFormOne = document.querySelector(".headerForm");
+export const searchFormTwo = document.querySelector(".header__search-form");

@@ -16,10 +16,15 @@ import {
   noteBtn,
   noteInputField,
   notesContainer,
+  searchFormOne,
+  searchFormTwo,
   searchIconToggle,
+  searchInputOne,
+  searchInputTwo,
   titleInputField,
 } from "./elements.js";
 import { renderNotes } from "./renderNotes.js";
+import { searchNotes } from "./searchNotes.js";
 import { setViewedPage } from "./setViewedPage.js";
 
 const date = new Date();
@@ -103,4 +108,16 @@ addPinnedNoteButton?.addEventListener("click", (e) => {
   addNote({ title, author, value: note, date: currentDate, pinned: true });
   renderNotes();
   setViewedPage("home");
+});
+
+searchFormOne.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const query = searchInputOne.value;
+  searchNotes(query);
+});
+
+searchFormTwo.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const query = searchInputTwo.value;
+  searchNotes(query);
 });
