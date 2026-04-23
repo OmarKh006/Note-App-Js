@@ -17,7 +17,6 @@ export const nonLaptopLogo = document.querySelector(".nonLaptopLogo");
 export const burgerMenu = document.querySelector("#menu");
 export const searchIconToggle = document.querySelector(".search-bar-icon");
 export const headerSearchForm = document.querySelector(".headerForm");
-export const notes = document.querySelectorAll(".sideBar__note");
 export const notesContainer = document.querySelector(".section");
 export const addNoteButton = document.querySelector(".add");
 export const addPinnedNoteButton = document.querySelector(".addPinned");

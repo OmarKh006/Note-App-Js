@@ -15,7 +15,6 @@ import {
   nonLaptopLogo,
   noteBtn,
   noteInputField,
-  notes,
   notesContainer,
   searchIconToggle,
   titleInputField,
@@ -61,15 +60,6 @@ burgerMenu?.addEventListener("change", () => {
 
 searchIconToggle?.addEventListener("click", () => {
   headerSearchForm?.classList.toggle("collapse");
-});
-
-notes?.forEach((note) => {
-  note?.addEventListener("click", () => {
-    if (screen.width <= 600) {
-      notesContainer?.classList.add("noteOpened");
-      aside?.classList.add("collapsed");
-    }
-  });
 });
 
 collapseButton?.addEventListener("click", () => {
