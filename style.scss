@@ -631,6 +631,10 @@ meter {
     flex-direction: column;
     gap: 1rem;
     overflow-y: scroll;
+
+    &.pinned {
+      max-height: 110px;
+    }
   }
 }
 
@@ -702,22 +706,3 @@ meter {
     }
   }
 }
-
-// @media (max-width: 600px) {
-//   #home-page.note-open .sideBar {
-//     display: none;
-//   }
-
-//   #home-page.note-open .sideBar__collapseButton,
-//   #home-page.note-open .selectedNote {
-//     display: block; // or flex, depending on your layout
-//   }
-// }
-
-// @media (max-width: 600px) {
-//   .sideBar {
-//     &__collapseButton {
-//       display: none;
-//     }
-//   }
-// }
