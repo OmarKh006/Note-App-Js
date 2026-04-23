@@ -33,7 +33,7 @@ export const renderNotes = () => {
     pinnedNoteContainer.innerHTML = `
       <h3 class="sideBar__noteTitle">${pinnedNotes[pinnedNotes.length - 1].title}</h3>
       <p class="sideBar__noteText">${pinnedNotes[pinnedNotes.length - 1].value}</p>
-      <div class="sideBar__noteInfo">
+      <div class="sideBar__noteInfo pBtn">
           <span class="sideBar__noteDate">${pinnedNotes[pinnedNotes.length - 1].date}</span>
           <button
               type="button"
@@ -44,6 +44,8 @@ export const renderNotes = () => {
           </button>
       </div>
     `;
+  } else {
+    pinnedNoteContainer.innerHTML = ``;
   }
   noteList.innerHTML = newNoteList;
   renderEventListeners();

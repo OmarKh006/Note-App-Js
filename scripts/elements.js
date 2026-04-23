@@ -27,3 +27,4 @@ export const noteList = document.querySelector(".sideBar__notes");
 export const pinnedNoteContainer = document.querySelector(
   ".sideBar__note.pinned",
 );
+export const deleteButtons = () => document.querySelectorAll("#deleteNote");

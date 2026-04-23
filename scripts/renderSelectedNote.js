@@ -1,7 +1,7 @@
 import { selectedNote } from "./elements.js";
 
 export const renderSelectedNote = (note) => {
-  if (note) {
+  if (note != undefined) {
     let newSelectedNote = `
   <h1 class="selectedNote__title">
             ${note.title}
@@ -77,6 +77,7 @@ export const renderSelectedNote = (note) => {
   `;
 
     selectedNote.innerHTML = newSelectedNote;
-    return;
+  } else {
+    selectedNote.innerHTML = ``;
   }
 };
