@@ -44,8 +44,8 @@ export const renderNotes = () => {
             <span class="sideBar__noteDate">${pinned.date}</span>
             <button
                 type="button"
-                class="sideBar__noteButton"
-                id="deleteNote pinned"
+                class="sideBar__noteButton deletePinnedNote"
+                id="deleteNote"
             >
                 Delete
             </button>

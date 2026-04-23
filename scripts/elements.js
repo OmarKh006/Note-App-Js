@@ -30,9 +30,10 @@ export const noteList = document.querySelector(".sideBar__notes:not(.pinned)");
 export const pinnedNoteContainer = document.querySelector(
   ".sideBar__notes.pinned",
 );
-export const deleteButtons = () => document.querySelectorAll("#deleteNote");
+export const deleteButtons = () =>
+  document.querySelectorAll("#deleteNote:not(.deletePinnedNote)");
 export const deletePinnedButtons = () =>
-  document.querySelectorAll("#deleteNote#pinned");
+  document.querySelectorAll(".deletePinnedNote");
 export const searchInputOne = document.querySelector(
   ".headerForm__searchInput",
 );

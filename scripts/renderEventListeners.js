@@ -1,21 +1,23 @@
-// import { deleteNote } from "./deleteNote.js";
+import { deleteNote } from "./deleteNote.js";
 import {
   aside,
+  deleteButtons,
+  deletePinnedButtons,
   notesContainer,
   notesElements,
   pinnedNotesElements,
 } from "./elements.js";
 import { fetchData } from "./fetchData.js";
-// import { renderNotes } from "./renderNotes.js";
+import { renderNotes } from "./renderNotes.js";
 import { renderSelectedNote } from "./renderSelectedNote.js";
-// import { setViewedPage } from "./setViewedPage.js";
+import { setViewedPage } from "./setViewedPage.js";
 
 export const renderEventListeners = () => {
   notesElements().forEach((note, idx) => {
     note?.addEventListener("click", (clickedNote) => {
-      notesElements().forEach((n) => {
-        n.classList.remove("selected");
-      });
+      notesElements().forEach((n) => n.classList.remove("selected"));
+      pinnedNotesElements().forEach((n) => n.classList.remove("selected"));
+
       clickedNote.currentTarget.classList.add("selected");
 
       const regularNotes = fetchData("notes");
@@ -25,9 +27,9 @@ export const renderEventListeners = () => {
 
   pinnedNotesElements().forEach((note, idx) => {
     note?.addEventListener("click", (clickedNote) => {
-      pinnedNotesElements().forEach((n) => {
-        n.classList.remove("selected");
-      });
+      notesElements().forEach((n) => n.classList.remove("selected"));
+      pinnedNotesElements().forEach((n) => n.classList.remove("selected"));
+
       clickedNote.currentTarget.classList.add("selected");
 
       const pinnedNotes = fetchData("pinnedNotes");
@@ -35,19 +37,35 @@ export const renderEventListeners = () => {
     });
   });
 
-  // deleteButtons().forEach((button, idx) => {
-  //   button?.addEventListener("click", () => {
-  //     deleteNote(idx);
-  //     if (fetchData("notes").length || fetchData("pinnedNotes").length) {
-  //       renderNotes();
-  //       renderSelectedNote();
-  //       return;
-  //     } else {
-  //       renderNotes();
-  //       setViewedPage("note");
-  //     }
-  //   });
-  // });
+  deleteButtons().forEach((button, idx) => {
+    button?.addEventListener("click", () => {
+      deleteNote(idx, "notes");
+      const regularNotes = fetchData("notes") || [];
+      const pinnedNotes = fetchData("pinnedNotes") || [];
+      if (regularNotes.length || pinnedNotes.length) {
+        renderNotes();
+        return;
+      } else {
+        renderNotes();
+        setViewedPage("note");
+      }
+    });
+  });
+
+  deletePinnedButtons().forEach((button, idx) => {
+    button?.addEventListener("click", () => {
+      deleteNote(idx, "pinnedNotes");
+      const regularNotes = fetchData("notes") || [];
+      const pinnedNotes = fetchData("pinnedNotes") || [];
+      if (regularNotes.length || pinnedNotes.length) {
+        renderNotes();
+        return;
+      } else {
+        renderNotes();
+        setViewedPage("note");
+      }
+    });
+  });
 
   notesElements().forEach((note) => {
     note?.addEventListener("click", () => {

@@ -14,7 +14,7 @@ export const deleteNote = (index, key) => {
     const pinnedNotes = fetchData(key) || [];
     if (pinnedNotes.length) {
       pinnedNotes.splice(index, 1);
-      saveToDB("notes", pinnedNotes);
+      saveToDB("pinnedNotes", pinnedNotes);
     }
   }
 };
