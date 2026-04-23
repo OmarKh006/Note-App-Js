@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aclonica&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Note App Js</title>
+    <script type="module" crossorigin src="/assets/index-C70y17f4.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-D5z4_07l.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="tablet-mobile-header">
+        <!-- <img src="/assets/Menu.svg" alt="burger menu icon" class="menu-icon" /> -->
+        <div class="mainContentWrapper">
+          <input type="checkbox" id="menu" hidden />
+          <label class="burger-menu" for="menu">
+            <div class="burger-menu__bar"></div>
+            <div class="burger-menu__bar"></div>
+            <div class="burger-menu__bar"></div>
+          </label>
+
+          <p class="header__logo nonLaptopLogo">Almdrasa-Notes</p>
+
+          <img
+            src="/assets/searchBarDark.svg"
+            alt="search icon"
+            class="search-bar-icon"
+          />
+        </div>
+
+        <form class="headerForm" id="search-form" role="search">
+          <div class="headerForm__search-wrapper">
+            <svg
+              class="header__search-icon"
+              aria-hidden="true"
+              focusable="false"
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_260_701)">
+                <path
+                  d="M8.15625 14.0683C11.4182 14.0683 14.0625 11.4229 14.0625 8.15964C14.0625 4.89637 11.4182 2.25098 8.15625 2.25098C4.89432 2.25098 2.25 4.89637 2.25 8.15964C2.25 11.4229 4.89432 14.0683 8.15625 14.0683Z"
+                  stroke="#898989"
+                  stroke-width="1.125"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12.332 12.3379L15.7493 15.7565"
+                  stroke="#898989"
+                  stroke-width="1.125"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_260_701">
+                  <rect width="18" height="18.0073" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+
+            <input
+              class="headerForm__searchInput"
+              type="search"
+              id="search-input"
+              placeholder="Search"
+            />
+          </div>
+        </form>
+      </div>
+      <header class="header">
+        <p class="header__logo">Almdrasa-Notes</p>
+        <form class="header__search-form" id="search-form" role="search">
+          <div class="header__search-wrapper">
+            <svg
+              class="header__search-icon"
+              aria-hidden="true"
+              focusable="false"
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_260_701)">
+                <path
+                  d="M8.15625 14.0683C11.4182 14.0683 14.0625 11.4229 14.0625 8.15964C14.0625 4.89637 11.4182 2.25098 8.15625 2.25098C4.89432 2.25098 2.25 4.89637 2.25 8.15964C2.25 11.4229 4.89432 14.0683 8.15625 14.0683Z"
+                  stroke="#898989"
+                  stroke-width="1.125"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12.332 12.3379L15.7493 15.7565"
+                  stroke="#898989"
+                  stroke-width="1.125"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_260_701">
+                  <rect width="18" height="18.0073" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+
+            <input
+              class="header__searchInput"
+              type="search"
+              id="search-input"
+              placeholder="Search"
+            />
+          </div>
+        </form>
+        <nav class="header__buttons" aria-label="Page navigation">
+          <button
+            id="homeBtn"
+            class="header__btn"
+            data-page="home"
+            aria-current="page"
+          >
+            Notes
+          </button>
+          <button id="noteBtn" class="header__btn" data-page="note">
+            Add Note
+          </button>
+        </nav>
+      </header>
+
+      <section class="section" id="home-page">
+        <aside class="sideBar">
+          <div class="sideBar__pinnedContainer">
+            <p class="sideBar__titleHeader">PINNED</p>
+            <div class="sideBar__note pinned"></div>
+            <p class="sideBar__titleHeader title--note">Notes</p>
+          </div>
+          <ul class="sideBar__notes"></ul>
+        </aside>
+        <button
+          type="button"
+          class="sideBar__collapseButton"
+          aria-label="Collapse sidebar"
+          aria-expanded="true"
+        >
+          <img src="/assets/collapseButton.svg" alt="" aria-hidden="true" />
+        </button>
+        <main class="selectedNote"></main>
+      </section>
+
+      <section id="add-note-page" class="addNote">
+        <main class="main">
+          <h1 class="main__header h1-header">Add Note</h1>
+          <form class="main__addNoteForm" id="add-note-form">
+            <p class="visually-hidden">Fields marked with * are required</p>
+            <div class="main__inputWrapper">
+              <label class="main__text" for="title"
+                >Title<span aria-hidden="true">*</span></label
+              >
+              <input
+                class="main__inputField"
+                type="text"
+                name="title"
+                id="title"
+                required
+                aria-required="true"
+              />
+            </div>
+            <div class="main__inputWrapper">
+              <label class="main__text" for="author"
+                >Author<span aria-hidden="true">*</span></label
+              >
+              <input
+                class="main__inputField"
+                type="text"
+                name="author"
+                id="author"
+                required
+                aria-required="true"
+              />
+            </div>
+            <div class="main__inputWrapper">
+              <label class="main__text" for="note"
+                >Your Note<span aria-hidden="true">*</span></label
+              >
+              <textarea
+                class="main__inputField main__textarea"
+                id="note"
+                name="note"
+                required
+                aria-required="true"
+              ></textarea>
+            </div>
+            <div class="main__buttonWrapper">
+              <button class="main__btn add" type="submit">Add Note</button>
+              <button class="main__btn addPinned" type="button">
+                Add pinned note
+              </button>
+            </div>
+          </form>
+        </main>
+      </section>
+    </div>
+  </body>
+</html>
