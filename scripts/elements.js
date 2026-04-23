@@ -2,7 +2,7 @@ export const navigationButtons = document.querySelectorAll(".header__btn");
 export const homePage = document.querySelector("#home-page");
 export const addNotePage = document.querySelector("#add-note-page");
 export const mainHeader = document.querySelector(".header");
-export const notesElements = document.querySelectorAll(".sideBar__note");
+export const notesElements = () => document.querySelectorAll(".sideBar__note");
 export const goToAddNoteBtn = document.querySelector(
   ".selectedNote__icon-button",
 );
@@ -24,3 +24,4 @@ export const addPinnedNoteButton = document.querySelector(".addPinned");
 export const titleInputField = document.querySelector("#title");
 export const authorInputField = document.querySelector("#author");
 export const noteInputField = document.querySelector("#note");
+export const noteList = document.querySelector(".sideBar__notes");

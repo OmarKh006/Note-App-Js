@@ -17,10 +17,10 @@ import {
   noteInputField,
   notes,
   notesContainer,
-  notesElements,
   searchIconToggle,
   titleInputField,
 } from "./elements.js";
+import { renderNotes } from "./renderNotes.js";
 import { setViewedPage } from "./setViewedPage.js";
 
 const date = new Date();
@@ -39,15 +39,6 @@ navigationButtons?.forEach((button) => {
     if (clicked.currentTarget.dataset.page === "home") setViewedPage("home");
     else if (clicked.currentTarget.dataset.page === "note")
       setViewedPage("note");
-  });
-});
-
-notesElements?.forEach((note) => {
-  note?.addEventListener("click", (clickedNote) => {
-    notesElements?.forEach((n) => {
-      n.classList.remove("selected");
-    });
-    clickedNote.currentTarget.classList.add("selected");
   });
 });
 
@@ -98,10 +89,12 @@ addNoteButton?.addEventListener("click", (e) => {
 
   if (!title || !author || !note) {
     alert("Please fill in the missing field");
+    return;
   }
 
   addNote({ title, author, value: note, date: currentDate });
-  setViewedPage("note");
+  renderNotes();
+  setViewedPage("home");
 });
 
 addPinnedNoteButton?.addEventListener("click", (e) => {
@@ -114,8 +107,10 @@ addPinnedNoteButton?.addEventListener("click", (e) => {
 
   if (!title || !author || !note) {
     alert("Please fill in the missing field");
+    return;
   }
 
   addNote({ title, author, value: note, date: currentDate, pinned: true });
-  setViewedPage("note");
+  renderNotes();
+  setViewedPage("home");
 });
