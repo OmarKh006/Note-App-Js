@@ -1,6 +1,10 @@
+import { addNote } from "./addNote.js";
 import {
+  addNoteButton,
   addNotePage,
+  addPinnedNoteButton,
   aside,
+  authorInputField,
   burgerMenu,
   collapseButton,
   goToAddNoteBtn,
@@ -10,12 +14,21 @@ import {
   navigationButtons,
   nonLaptopLogo,
   noteBtn,
+  noteInputField,
   notes,
   notesContainer,
   notesElements,
   searchIconToggle,
+  titleInputField,
 } from "./elements.js";
 import { setViewedPage } from "./setViewedPage.js";
+
+const date = new Date();
+const options = {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
 
 navigationButtons?.forEach((button) => {
   button?.addEventListener("click", (clicked) => {
@@ -73,4 +86,36 @@ collapseButton?.addEventListener("click", () => {
     notesContainer?.classList.remove("noteOpened");
     aside?.classList.remove("collapsed");
   }
+});
+
+addNoteButton?.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const title = titleInputField.value;
+  const author = authorInputField.value;
+  const note = noteInputField.value;
+  const currentDate = date.toLocaleDateString("en-US", options);
+
+  if (!title || !author || !note) {
+    alert("Please fill in the missing field");
+  }
+
+  addNote({ title, author, value: note, date: currentDate });
+  setViewedPage("note");
+});
+
+addPinnedNoteButton?.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const title = titleInputField.value;
+  const author = authorInputField.value;
+  const note = noteInputField.value;
+  const currentDate = date.toLocaleDateString("en-US", options);
+
+  if (!title || !author || !note) {
+    alert("Please fill in the missing field");
+  }
+
+  addNote({ title, author, value: note, date: currentDate, pinned: true });
+  setViewedPage("note");
 });
