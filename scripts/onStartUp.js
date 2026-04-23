@@ -3,7 +3,10 @@ import { renderNotes } from "./renderNotes.js";
 import { setViewedPage } from "./setViewedPage.js";
 
 export const onStartUp = () => {
-  if (fetchData("notes").length) {
+  const notes = fetchData("notes") || [];
+  const pinnedNotes = fetchData("pinnedNotes") || [];
+
+  if (notes.length || pinnedNotes.length) {
     renderNotes();
     setViewedPage("home");
     return;

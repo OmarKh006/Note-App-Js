@@ -1,12 +1,20 @@
 import { fetchData } from "./fetchData";
 import { saveToDB } from "./saveToDB";
 
-export const deleteNote = (index) => {
+export const deleteNote = (index, key) => {
   if (!confirm("Are you sure ??")) return;
 
-  const notes = fetchData("notes");
-
-  notes.splice(index, 1);
-
-  saveToDB("notes", notes);
+  if (key === "notes") {
+    const notes = fetchData(key) || [];
+    if (notes.length) {
+      notes.splice(index, 1);
+      saveToDB("notes", notes);
+    }
+  } else if (key === "pinnedNotes") {
+    const pinnedNotes = fetchData(key) || [];
+    if (pinnedNotes.length) {
+      pinnedNotes.splice(index, 1);
+      saveToDB("notes", pinnedNotes);
+    }
+  }
 };

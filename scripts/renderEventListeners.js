@@ -1,14 +1,14 @@
-import { deleteNote } from "./deleteNote.js";
+// import { deleteNote } from "./deleteNote.js";
 import {
   aside,
-  deleteButtons,
   notesContainer,
   notesElements,
+  pinnedNotesElements,
 } from "./elements.js";
 import { fetchData } from "./fetchData.js";
-import { renderNotes } from "./renderNotes.js";
+// import { renderNotes } from "./renderNotes.js";
 import { renderSelectedNote } from "./renderSelectedNote.js";
-import { setViewedPage } from "./setViewedPage.js";
+// import { setViewedPage } from "./setViewedPage.js";
 
 export const renderEventListeners = () => {
   notesElements().forEach((note, idx) => {
@@ -18,30 +18,36 @@ export const renderEventListeners = () => {
       });
       clickedNote.currentTarget.classList.add("selected");
 
-      const note = fetchData("notes");
-
-      if (clickedNote.currentTarget.classList.contains("pinned")) {
-        const pinnedNotes = note.filter((note) => note.pinned == true);
-        renderSelectedNote(pinnedNotes[pinnedNotes.length - 1]);
-        return;
-      }
-
-      renderSelectedNote(note[idx - 1]);
+      const regularNotes = fetchData("notes");
+      renderSelectedNote(regularNotes[idx]);
     });
   });
 
-  deleteButtons().forEach((button, idx) => {
-    button?.addEventListener("click", () => {
-      deleteNote(idx - 1);
-      if (fetchData("notes").length) {
-        renderNotes();
-        renderSelectedNote();
-        return;
-      } else {
-        setViewedPage("note");
-      }
+  pinnedNotesElements().forEach((note, idx) => {
+    note?.addEventListener("click", (clickedNote) => {
+      pinnedNotesElements().forEach((n) => {
+        n.classList.remove("selected");
+      });
+      clickedNote.currentTarget.classList.add("selected");
+
+      const pinnedNotes = fetchData("pinnedNotes");
+      renderSelectedNote(pinnedNotes[idx]);
     });
   });
+
+  // deleteButtons().forEach((button, idx) => {
+  //   button?.addEventListener("click", () => {
+  //     deleteNote(idx);
+  //     if (fetchData("notes").length || fetchData("pinnedNotes").length) {
+  //       renderNotes();
+  //       renderSelectedNote();
+  //       return;
+  //     } else {
+  //       renderNotes();
+  //       setViewedPage("note");
+  //     }
+  //   });
+  // });
 
   notesElements().forEach((note) => {
     note?.addEventListener("click", () => {

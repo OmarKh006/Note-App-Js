@@ -2,7 +2,9 @@ import { fetchData } from "./fetchData.js";
 import { saveToDB } from "./saveToDB.js";
 
 export const addNote = ({ title, author, value, date, pinned = false }) => {
-  const notes = fetchData("notes") || [];
+  const regularNotesArray = fetchData("notes") || [];
+  const pinnedNotesArray = fetchData("pinnedNotes") || [];
+
   const note = {
     title,
     author,
@@ -11,6 +13,11 @@ export const addNote = ({ title, author, value, date, pinned = false }) => {
     pinned,
   };
 
-  notes.push(note);
-  saveToDB("notes", notes);
+  if (pinned === true) {
+    pinnedNotesArray.push(note);
+    saveToDB("pinnedNotes", pinnedNotesArray);
+  } else {
+    regularNotesArray.push(note);
+    saveToDB("notes", regularNotesArray);
+  }
 };
