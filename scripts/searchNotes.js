@@ -5,13 +5,20 @@ export const searchNotes = (query) => {
   const notes = fetchData("notes") || [];
   const pinnedNotes = fetchData("pinnedNotes") || [];
 
-  const filteredNotes = notes.filter((note) => note.value.includes(query));
-  const filteredPinnedNotes = pinnedNotes.filter((note) =>
-    note.value.includes(query),
-  );
+  const filteredRegularNotes = notes
+    .map((value, index) => ({ value, index }))
+    .filter((note) =>
+      note.value.value.toLowerCase().includes(query.toLowerCase()),
+    );
+
+  const filteredPinnedNotes = pinnedNotes
+    .map((value, index) => ({ value, index }))
+    .filter((note) =>
+      note.value.value.toLowerCase().includes(query.toLowerCase()),
+    );
 
   renderNotes({
-    regularSearch: filteredNotes,
+    regularSearch: filteredRegularNotes,
     pinnedSearch: filteredPinnedNotes,
   });
 };

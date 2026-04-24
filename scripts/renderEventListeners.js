@@ -39,7 +39,11 @@ export const renderEventListeners = () => {
 
   deleteButtons().forEach((button, idx) => {
     button?.addEventListener("click", () => {
-      deleteNote(idx, "notes");
+      if (button.dataset.index) {
+        deleteNote(Number.parseInt(button.dataset.index), "notes");
+      } else {
+        deleteNote(idx, "notes");
+      }
       const regularNotes = fetchData("notes") || [];
       const pinnedNotes = fetchData("pinnedNotes") || [];
       if (regularNotes.length || pinnedNotes.length) {
@@ -54,7 +58,11 @@ export const renderEventListeners = () => {
 
   deletePinnedButtons().forEach((button, idx) => {
     button?.addEventListener("click", () => {
-      deleteNote(idx, "pinnedNotes");
+      if (button.dataset.index) {
+        deleteNote(Number.parseInt(button.dataset.index), "pinnedNotes");
+      } else {
+        deleteNote(idx, "pinnedNotes");
+      }
       const regularNotes = fetchData("notes") || [];
       const pinnedNotes = fetchData("pinnedNotes") || [];
       if (regularNotes.length || pinnedNotes.length) {

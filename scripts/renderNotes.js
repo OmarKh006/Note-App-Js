@@ -67,14 +67,15 @@ export const renderNotes = ({
       regularSearch.forEach((regular) => {
         newNoteList += `
             <li class="sideBar__note">
-              <h3 class="sideBar__noteTitle">${regular.title}</h3>
-              <p class="sideBar__noteText">${regular.value}</p>
+              <h3 class="sideBar__noteTitle">${regular.value.title}</h3>
+              <p class="sideBar__noteText">${regular.value.value}</p>
               <div class="sideBar__noteInfo">
-                  <span class="sideBar__noteDate">${regular.date}</span>
+                  <span class="sideBar__noteDate">${regular.value.date}</span>
                   <button
                       type="button"
                       class="sideBar__noteButton"
                       id="deleteNote"
+                      data-index="${regular.index}"
                   >
                       Delete
                   </button>
@@ -89,14 +90,15 @@ export const renderNotes = ({
       pinnedSearch.forEach((pinned) => {
         newPinnedNoteList += `
         <li class="sideBar__note pinnedNote">
-          <h3 class="sideBar__noteTitle">${pinned.title}</h3>
-          <p class="sideBar__noteText">${pinned.value}</p>
+          <h3 class="sideBar__noteTitle">${pinned.value.title}</h3>
+          <p class="sideBar__noteText">${pinned.value.value}</p>
           <div class="sideBar__noteInfo pBtn">
-            <span class="sideBar__noteDate">${pinned.date}</span>
+            <span class="sideBar__noteDate">${pinned.value.date}</span>
             <button
                 type="button"
                 class="sideBar__noteButton deletePinnedNote"
                 id="deleteNote"
+                data-index="${pinned.index}"
             >
                 Delete
             </button>
