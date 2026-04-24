@@ -70,7 +70,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||e((t={exports:{}}).exports,t
               />
             </g>
           </svg>
-  `}})),V,H=e((()=>{P(),V=e=>{e===`home`?(a.style.display=`flex`,o.style.display=`none`,d.setAttribute(`aria-current`,`page`),f.removeAttribute(`aria-current`)):e===`note`&&(a.style.display=`none`,o.style.display=`block`,d.removeAttribute(`aria-current`),f.setAttribute(`aria-current`,`page`))}})),U,W=e((()=>{R(),P(),r(),K(),B(),H(),U=()=>{c().forEach((e,t)=>{e?.addEventListener(`click`,e=>{c().forEach(e=>e.classList.remove(`selected`)),l().forEach(e=>e.classList.remove(`selected`)),e.currentTarget.classList.add(`selected`),z(n(`notes`)[t])})}),l().forEach((e,t)=>{e?.addEventListener(`click`,e=>{c().forEach(e=>e.classList.remove(`selected`)),l().forEach(e=>e.classList.remove(`selected`)),e.currentTarget.classList.add(`selected`),z(n(`pinnedNotes`)[t])})}),O().forEach((e,t)=>{e?.addEventListener(`click`,()=>{L(t,`notes`);let e=n(`notes`)||[],r=n(`pinnedNotes`)||[];if(e.length||r.length){G();return}else G(),V(`note`)})}),k().forEach((e,t)=>{e?.addEventListener(`click`,()=>{L(t,`pinnedNotes`);let e=n(`notes`)||[],r=n(`pinnedNotes`)||[];if(e.length||r.length){G();return}else G(),V(`note`)})}),c().forEach(e=>{e?.addEventListener(`click`,()=>{screen.width<=600&&(b?.classList.add(`noteOpened`),m?.classList.add(`collapsed`))})})}})),G,K=e((()=>{P(),r(),W(),G=({regularSearch:e=void 0,pinnedSearch:t=void 0}={})=>{let r=``,i=``;if(!e&&!t){let e=n(`notes`)||[],t=n(`pinnedNotes`)||[];e&&e.length?(e.forEach(e=>{r+=`
+  `}})),V,H=e((()=>{P(),V=e=>{e===`home`?(a.style.display=`flex`,o.style.display=`none`,d.setAttribute(`aria-current`,`page`),f.removeAttribute(`aria-current`)):e===`note`&&(a.style.display=`none`,o.style.display=`block`,d.removeAttribute(`aria-current`),f.setAttribute(`aria-current`,`page`))}})),U,W=e((()=>{R(),P(),r(),K(),B(),H(),U=()=>{c().forEach((e,t)=>{e?.addEventListener(`click`,e=>{c().forEach(e=>e.classList.remove(`selected`)),l().forEach(e=>e.classList.remove(`selected`)),e.currentTarget.classList.add(`selected`),z(n(`notes`)[t])})}),l().forEach((e,t)=>{e?.addEventListener(`click`,e=>{c().forEach(e=>e.classList.remove(`selected`)),l().forEach(e=>e.classList.remove(`selected`)),e.currentTarget.classList.add(`selected`),z(n(`pinnedNotes`)[t])})}),O().forEach((e,t)=>{e?.addEventListener(`click`,()=>{e.dataset.index?L(Number.parseInt(e.dataset.index),`notes`):L(t,`notes`);let r=n(`notes`)||[],i=n(`pinnedNotes`)||[];if(r.length||i.length){G();return}else G(),V(`note`)})}),k().forEach((e,t)=>{e?.addEventListener(`click`,()=>{e.dataset.index?L(Number.parseInt(e.dataset.index),`pinnedNotes`):L(t,`pinnedNotes`);let r=n(`notes`)||[],i=n(`pinnedNotes`)||[];if(r.length||i.length){G();return}else G(),V(`note`)})}),c().forEach(e=>{e?.addEventListener(`click`,()=>{screen.width<=600&&(b?.classList.add(`noteOpened`),m?.classList.add(`collapsed`))})})}})),G,K=e((()=>{P(),r(),W(),G=({regularSearch:e=void 0,pinnedSearch:t=void 0}={})=>{let r=``,i=``;if(!e&&!t){let e=n(`notes`)||[],t=n(`pinnedNotes`)||[];e&&e.length?(e.forEach(e=>{r+=`
             <li class="sideBar__note">
               <h3 class="sideBar__noteTitle">${e.title}</h3>
               <p class="sideBar__noteText">${e.value}</p>
@@ -102,14 +102,15 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||e((t={exports:{}}).exports,t
         </li>
     `}),D.innerHTML=i):D.innerHTML=``,U()}else e&&e.length&&(e.forEach(e=>{r+=`
             <li class="sideBar__note">
-              <h3 class="sideBar__noteTitle">${e.title}</h3>
-              <p class="sideBar__noteText">${e.value}</p>
+              <h3 class="sideBar__noteTitle">${e.value.title}</h3>
+              <p class="sideBar__noteText">${e.value.value}</p>
               <div class="sideBar__noteInfo">
-                  <span class="sideBar__noteDate">${e.date}</span>
+                  <span class="sideBar__noteDate">${e.value.date}</span>
                   <button
                       type="button"
                       class="sideBar__noteButton"
                       id="deleteNote"
+                      data-index="${e.index}"
                   >
                       Delete
                   </button>
@@ -117,17 +118,18 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||e((t={exports:{}}).exports,t
             </li>
             `}),E.innerHTML=r,U()),t&&t.length&&(t.forEach(e=>{i+=`
         <li class="sideBar__note pinnedNote">
-          <h3 class="sideBar__noteTitle">${e.title}</h3>
-          <p class="sideBar__noteText">${e.value}</p>
+          <h3 class="sideBar__noteTitle">${e.value.title}</h3>
+          <p class="sideBar__noteText">${e.value.value}</p>
           <div class="sideBar__noteInfo pBtn">
-            <span class="sideBar__noteDate">${e.date}</span>
+            <span class="sideBar__noteDate">${e.value.date}</span>
             <button
                 type="button"
                 class="sideBar__noteButton deletePinnedNote"
                 id="deleteNote"
+                data-index="${e.index}"
             >
                 Delete
             </button>
           </div>
         </li>
-    `}),D.innerHTML=i,U())}})),q,J=e((()=>{r(),K(),H(),q=()=>{let e=n(`notes`)||[],t=n(`pinnedNotes`)||[];if(e.length||t.length){G(),V(`home`);return}V(`note`)}})),Y,X=e((()=>{r(),I(),Y=({title:e,author:t,value:r,date:i,pinned:a=!1})=>{let o=n(`notes`)||[],s=n(`pinnedNotes`)||[],c={title:e,author:t,value:r,date:i,pinned:a};a===!0?(s.push(c),F(`pinnedNotes`,s)):(o.push(c),F(`notes`,o))}})),Z,Q=e((()=>{r(),K(),Z=e=>{let t=n(`notes`)||[],r=n(`pinnedNotes`)||[];G({regularSearch:t.filter(t=>t.value.includes(e)),pinnedSearch:r.filter(t=>t.value.includes(e))})}})),$=t((()=>{X(),P(),K(),Q(),H();var e=new Date,t={year:`numeric`,month:`long`,day:`numeric`};i?.forEach(e=>{e?.addEventListener(`click`,e=>{i?.forEach(e=>{e.removeAttribute(`aria-current`)}),e.currentTarget.setAttribute(`aria-current`,`page`),e.currentTarget.dataset.page===`home`?V(`home`):e.currentTarget.dataset.page===`note`&&V(`note`)})}),u?.addEventListener(`click`,()=>{V(`note`),f?.setAttribute(`aria-current`,`page`),d?.removeAttribute(`aria-current`)}),p?.addEventListener(`click`,()=>{m?.classList.toggle(`collapsed`)}),_?.addEventListener(`change`,()=>{s?.classList.toggle(`burgerChecked`),o?.classList.toggle(`burgerChecked`),g?.classList.toggle(`burgerChecked`),y?.classList.toggle(`shrinked`)}),v?.addEventListener(`click`,()=>{y?.classList.toggle(`collapse`)}),p?.addEventListener(`click`,()=>{b?.classList.contains(`noteOpened`)&&(b?.classList.remove(`noteOpened`),m?.classList.remove(`collapsed`))}),x?.addEventListener(`click`,n=>{n.preventDefault();let r=C.value,i=w.value,a=T.value,o=e.toLocaleDateString(`en-US`,t);if(!r||!i||!a){alert(`Please fill in the missing field`);return}Y({title:r,author:i,value:a,date:o}),G(),V(`home`)}),S?.addEventListener(`click`,n=>{n.preventDefault();let r=C.value,i=w.value,a=T.value,o=e.toLocaleDateString(`en-US`,t);if(!r||!i||!a){alert(`Please fill in the missing field`);return}Y({title:r,author:i,value:a,date:o,pinned:!0}),G(),V(`home`)}),M.addEventListener(`submit`,e=>{e.preventDefault();let t=A.value;Z(t)}),N.addEventListener(`submit`,e=>{e.preventDefault();let t=j.value;Z(t)})}));t((()=>{J(),$(),q()}))();
+    `}),D.innerHTML=i,U())}})),q,J=e((()=>{r(),K(),H(),q=()=>{let e=n(`notes`)||[],t=n(`pinnedNotes`)||[];if(e.length||t.length){G(),V(`home`);return}V(`note`)}})),Y,X=e((()=>{r(),I(),Y=({title:e,author:t,value:r,date:i,pinned:a=!1})=>{let o=n(`notes`)||[],s=n(`pinnedNotes`)||[],c={title:e,author:t,value:r,date:i,pinned:a};a===!0?(s.push(c),F(`pinnedNotes`,s)):(o.push(c),F(`notes`,o))}})),Z,Q=e((()=>{r(),K(),Z=e=>{let t=n(`notes`)||[],r=n(`pinnedNotes`)||[];G({regularSearch:t.map((e,t)=>({value:e,index:t})).filter(t=>t.value.value.toLowerCase().includes(e.toLowerCase())),pinnedSearch:r.map((e,t)=>({value:e,index:t})).filter(t=>t.value.value.toLowerCase().includes(e.toLowerCase()))})}})),$=t((()=>{X(),P(),K(),Q(),H();var e=new Date,t={year:`numeric`,month:`long`,day:`numeric`};i?.forEach(e=>{e?.addEventListener(`click`,e=>{i?.forEach(e=>{e.removeAttribute(`aria-current`)}),e.currentTarget.setAttribute(`aria-current`,`page`),e.currentTarget.dataset.page===`home`?V(`home`):e.currentTarget.dataset.page===`note`&&V(`note`)})}),u?.addEventListener(`click`,()=>{V(`note`),f?.setAttribute(`aria-current`,`page`),d?.removeAttribute(`aria-current`)}),p?.addEventListener(`click`,()=>{m?.classList.toggle(`collapsed`)}),_?.addEventListener(`change`,()=>{s?.classList.toggle(`burgerChecked`),o?.classList.toggle(`burgerChecked`),g?.classList.toggle(`burgerChecked`),y?.classList.toggle(`shrinked`)}),v?.addEventListener(`click`,()=>{y?.classList.toggle(`collapse`)}),p?.addEventListener(`click`,()=>{b?.classList.contains(`noteOpened`)&&(b?.classList.remove(`noteOpened`),m?.classList.remove(`collapsed`))}),x?.addEventListener(`click`,n=>{n.preventDefault();let r=C.value,i=w.value,a=T.value,o=e.toLocaleDateString(`en-US`,t);if(!r||!i||!a){alert(`Please fill in the missing field`);return}Y({title:r,author:i,value:a,date:o}),G(),V(`home`)}),S?.addEventListener(`click`,n=>{n.preventDefault();let r=C.value,i=w.value,a=T.value,o=e.toLocaleDateString(`en-US`,t);if(!r||!i||!a){alert(`Please fill in the missing field`);return}Y({title:r,author:i,value:a,date:o,pinned:!0}),G(),V(`home`)}),M.addEventListener(`submit`,e=>{e.preventDefault();let t=A.value;Z(t)}),N.addEventListener(`submit`,e=>{e.preventDefault();let t=j.value;Z(t)})}));t((()=>{J(),$(),q()}))();
