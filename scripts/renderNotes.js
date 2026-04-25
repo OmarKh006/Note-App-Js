@@ -63,9 +63,12 @@ export const renderNotes = ({
 
     renderEventListeners();
   } else {
-    if (regularSearch && regularSearch.length) {
-      regularSearch.forEach((regular) => {
-        newNoteList += `
+    if (regularSearch === 404 && pinnedSearch === 404) {
+      alert("Not found!");
+    } else {
+      if (regularSearch && regularSearch.length) {
+        regularSearch.forEach((regular) => {
+          newNoteList += `
             <li class="sideBar__note">
               <h3 class="sideBar__noteTitle">${regular.value.title}</h3>
               <p class="sideBar__noteText">${regular.value.value}</p>
@@ -82,13 +85,13 @@ export const renderNotes = ({
               </div>
             </li>
             `;
-      });
-      noteList.innerHTML = newNoteList;
-      renderEventListeners();
-    }
-    if (pinnedSearch && pinnedSearch.length) {
-      pinnedSearch.forEach((pinned) => {
-        newPinnedNoteList += `
+        });
+        noteList.innerHTML = newNoteList;
+        renderEventListeners();
+      }
+      if (pinnedSearch && pinnedSearch.length) {
+        pinnedSearch.forEach((pinned) => {
+          newPinnedNoteList += `
         <li class="sideBar__note pinnedNote">
           <h3 class="sideBar__noteTitle">${pinned.value.title}</h3>
           <p class="sideBar__noteText">${pinned.value.value}</p>
@@ -105,9 +108,10 @@ export const renderNotes = ({
           </div>
         </li>
     `;
-      });
-      pinnedNoteContainer.innerHTML = newPinnedNoteList;
-      renderEventListeners();
+        });
+        pinnedNoteContainer.innerHTML = newPinnedNoteList;
+        renderEventListeners();
+      }
     }
   }
 };

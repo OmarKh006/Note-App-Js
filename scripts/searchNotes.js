@@ -16,9 +16,9 @@ export const searchNotes = (query) => {
     .filter((note) =>
       note.value.value.toLowerCase().includes(query.toLowerCase()),
     );
-
   renderNotes({
-    regularSearch: filteredRegularNotes,
-    pinnedSearch: filteredPinnedNotes,
+    regularSearch:
+      filteredRegularNotes.length !== 0 ? filteredRegularNotes : 404,
+    pinnedSearch: filteredPinnedNotes.length !== 0 ? filteredPinnedNotes : 404,
   });
 };
